@@ -8,11 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace SRCNservices
 {
     public partial class frmMain : Form
     {
+        readonly string dataSource = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=SRCNServ;Integrated Security=True";
+
         public frmMain()
         {
             InitializeComponent();
@@ -26,11 +29,26 @@ namespace SRCNservices
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=SRCNServ;Integrated Security=True");
+            //Заполняем фильтры
+            yearCombo.DataSource = new string[]{"2021"};
+
+            monthCombo.DataSource = DateTimeFormatInfo.CurrentInfo.MonthNames.Take(12).ToArray();
+            monthCombo.SelectedItem = DateTime.Now.ToString("MMMM");
+
+            SqlConnection conn = new SqlConnection(dataSource);
             try
             {
                 conn.Open();
 
+                //Заполняем обзорную таблицу
+                string query = "SELECT * FROM Services";
+                dataGridView1.DataSource = GetData(conn, query);
+
+                //Заполняем фильтр детей
+                query = "SELECT name FROM Children";
+                childCombo.DataSource = GetData(conn, query);
+                childCombo.ValueMember = "name";
+                conn.Close();
             }
             catch (Exception ex)
             {
@@ -38,14 +56,15 @@ namespace SRCNservices
                     MessageBox.Show(ex.Message);
                 }
             }
+            
+        }
 
-            //SqlCommand command = new SqlCommand("SELECT * FROM Services", conn);
-            string query = "SELECT * FROM Services";
+        DataTable GetData (SqlConnection conn, string query)
+        {
             SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
             DataTable table = new DataTable();
             adapter.Fill(table);
-            dataGridView1.DataSource = table;
-            conn.Close();
+            return table;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
