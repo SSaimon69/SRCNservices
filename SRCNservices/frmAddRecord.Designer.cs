@@ -62,6 +62,7 @@ namespace SRCNservices
             this.btnAddRecord.TabIndex = 1;
             this.btnAddRecord.Text = "Добавить запись";
             this.btnAddRecord.UseVisualStyleBackColor = true;
+            this.btnAddRecord.Click += new System.EventHandler(this.btnAddRecord_Click);
             // 
             // comboBox1
             // 
@@ -147,9 +148,12 @@ namespace SRCNservices
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(29, 210);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(394, 150);
             this.dataGridView1.TabIndex = 12;
@@ -181,6 +185,7 @@ namespace SRCNservices
             this.Controls.Add(this.label1);
             this.Name = "frmAddRecord";
             this.Text = "Добавление услуги";
+            this.Load += new System.EventHandler(this.frmAddRecord_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
