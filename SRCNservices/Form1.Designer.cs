@@ -35,14 +35,16 @@ namespace SRCNservices
             this.btnStudents = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.childCombo = new System.Windows.Forms.ComboBox();
-            this.yearCombo = new System.Windows.Forms.ComboBox();
-            this.monthCombo = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.monthCombo = new System.Windows.Forms.ComboBox();
+            this.yearCombo = new System.Windows.Forms.ComboBox();
+            this.childCombo = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.halfCombo = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -91,6 +93,8 @@ namespace SRCNservices
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.halfCombo);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
@@ -106,56 +110,14 @@ namespace SRCNservices
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Фильтр";
             // 
-            // childCombo
+            // label4
             // 
-            this.childCombo.FormattingEnabled = true;
-            this.childCombo.Location = new System.Drawing.Point(357, 19);
-            this.childCombo.Name = "childCombo";
-            this.childCombo.Size = new System.Drawing.Size(121, 23);
-            this.childCombo.TabIndex = 0;
-            this.childCombo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // yearCombo
-            // 
-            this.yearCombo.FormattingEnabled = true;
-            this.yearCombo.Location = new System.Drawing.Point(88, 22);
-            this.yearCombo.Name = "yearCombo";
-            this.yearCombo.Size = new System.Drawing.Size(121, 23);
-            this.yearCombo.TabIndex = 1;
-            // 
-            // monthCombo
-            // 
-            this.monthCombo.FormattingEnabled = true;
-            this.monthCombo.Location = new System.Drawing.Point(88, 69);
-            this.monthCombo.Name = "monthCombo";
-            this.monthCombo.Size = new System.Drawing.Size(121, 23);
-            this.monthCombo.TabIndex = 2;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(357, 69);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 23);
-            this.comboBox3.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 15);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Год";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 72);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 15);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Месяц";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(268, 69);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(22, 15);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "---";
             // 
             // label3
             // 
@@ -166,14 +128,73 @@ namespace SRCNservices
             this.label3.TabIndex = 6;
             this.label3.Text = "Воспитанник";
             // 
-            // label4
+            // label2
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(268, 69);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(22, 15);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "---";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(18, 54);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 15);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Месяц";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(18, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(26, 15);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Год";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(357, 69);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(121, 23);
+            this.comboBox3.TabIndex = 3;
+            // 
+            // monthCombo
+            // 
+            this.monthCombo.FormattingEnabled = true;
+            this.monthCombo.Location = new System.Drawing.Point(88, 51);
+            this.monthCombo.Name = "monthCombo";
+            this.monthCombo.Size = new System.Drawing.Size(121, 23);
+            this.monthCombo.TabIndex = 2;
+            // 
+            // yearCombo
+            // 
+            this.yearCombo.FormattingEnabled = true;
+            this.yearCombo.Location = new System.Drawing.Point(88, 22);
+            this.yearCombo.Name = "yearCombo";
+            this.yearCombo.Size = new System.Drawing.Size(121, 23);
+            this.yearCombo.TabIndex = 1;
+            // 
+            // childCombo
+            // 
+            this.childCombo.FormattingEnabled = true;
+            this.childCombo.Location = new System.Drawing.Point(357, 19);
+            this.childCombo.Name = "childCombo";
+            this.childCombo.Size = new System.Drawing.Size(121, 23);
+            this.childCombo.TabIndex = 0;
+            this.childCombo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(18, 84);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 15);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Половина";
+            // 
+            // halfCombo
+            // 
+            this.halfCombo.FormattingEnabled = true;
+            this.halfCombo.Location = new System.Drawing.Point(88, 81);
+            this.halfCombo.Name = "halfCombo";
+            this.halfCombo.Size = new System.Drawing.Size(121, 23);
+            this.halfCombo.TabIndex = 8;
             // 
             // frmMain
             // 
@@ -213,6 +234,8 @@ namespace SRCNservices
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.ComboBox monthCombo;
         private System.Windows.Forms.ComboBox yearCombo;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox halfCombo;
     }
 }
 

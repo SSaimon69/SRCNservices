@@ -35,13 +35,18 @@ namespace SRCNservices
             monthCombo.DataSource = DateTimeFormatInfo.CurrentInfo.MonthNames.Take(12).ToArray();
             monthCombo.SelectedItem = DateTime.Now.ToString("MMMM");
 
+            halfCombo.DataSource = new string[] { "Первая", "Вторая" };
+
             SqlConnection conn = new SqlConnection(dataSource);
             try
             {
                 conn.Open();
 
                 //Заполняем обзорную таблицу
-                string query = "SELECT * FROM Services";
+                string query = "SELECT Children.name AS Воспитанник, Service.name AS Услуга, count AS Колличество FROM Services " +
+                    "JOIN Children ON Children.id = Services.idChild " +
+                    "JOIN Service ON Services.idService = Service.id";
+
                 dataGridView1.DataSource = GetData(conn, query);
 
                 //Заполняем фильтр детей
